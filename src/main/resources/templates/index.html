@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Blog</title>
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+<body>
+    <h1>Blog Posts</h1>
+    <a href="/create">Create New Post</a>
+    <ul>
+        <li th:each="post : ${posts}">
+            <h3 th:text="${post.title}"></h3>
+            <p th:text="${post.content}"></p>
+            <p th:text="${post.createdAt}"></p>
+        </li>
+    </ul>
+</body>
+</html>
+
