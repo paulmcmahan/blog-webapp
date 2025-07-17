@@ -10,6 +10,9 @@ public class DeleteService {
     private PostRepository postRepository;
 
     public void deletePost(Long id) {
+        if (id < 1) {
+            throw new IllegalArgumentException("Invalid post ID");
+        }
         postRepository.deleteById(id);
     }
 }
