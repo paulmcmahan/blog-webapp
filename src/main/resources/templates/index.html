@@ -8,10 +8,13 @@
     <h1>Blog Posts</h1>
     <a href="/create">Create New Post</a>
     <ul>
-        <li th:each="post : ${posts}">
+        <li th:each="post : ${posts}" th:id="'post-' + ${post.id}">
             <h3 th:text="${post.title}"></h3>
             <p th:text="${post.content}"></p>
             <p th:text="${post.createdAt}"></p>
+            <form th:action="'/delete/' + ${post.id}" method="post">
+                <button type="submit">Delete</button>
+            </form>
         </li>
     </ul>
 </body>
